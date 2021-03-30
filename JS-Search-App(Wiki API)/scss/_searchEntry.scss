@@ -39,5 +39,67 @@
                 font-size: 1.25rem;
             }
         }
+
+        .button {
+            cursor: pointer;
+            border: 0;
+            background: transparent;
+            min-width: 48px;
+            min-height: 48px;
+            outline: none;
+
+            i {
+                font-family: "Font Awesome 5 Free";
+                font-size: 1rem;
+                @include mq(768px){
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        .button:hover,
+        .button:focus{
+            i{
+                padding-bottom: 0.5rem;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+            }
+        }
+
+        .searchButton:hover,
+        .searchButton:focus {
+            i {
+                color: $logo-green;
+            }
+        }
+
+        .clear:hover,
+        .clear:focus {
+            i {
+                color: $logo-red;
+            }
+        }
+
+        .searchButton {
+            @include mq(768px){
+                padding-left: 1rem;
+            }
+        }
+
+        .clear{
+            // display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $stats-color;
+            border-right: thin solid $clear-button-color;
+            @include mq(768px) {
+                padding: 0rem 1rem;
+            }
+        }
+    }
+
+    .searchBar:hover,
+    .searchBar:focus-within {
+        box-shadow: 0 2px 5px 2px $search-bar-border;
     }
 }
