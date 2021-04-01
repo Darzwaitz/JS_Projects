@@ -1,5 +1,5 @@
 //grab search term from input and trim whitespace
-//replace extra spaces, when more than one with the regex - one space
+//replace extra spaces with one space, when more than one, with the regex
 export const getSearchTerm = () => {
     const rawSearchTerm = document.getElementById("search").value.trim();
     const regex = /[ ]{2,}/gi;
@@ -38,7 +38,7 @@ const getMaxChars = () => {
     return maxChars;
 };
 
-const requestData = async (SearchString) => {
+const requestData = async (searchString) => {
     try {
         const response = await fetch(searchString);
         const data = await response.json();
@@ -50,6 +50,7 @@ const requestData = async (SearchString) => {
 
 const processWikiResults = (results) => {
     const resultArray = [];
+    // The Object.keys() method returns an array of a given object's own enumerable property *names*, iterated in the same order that a normal loop would
     Object.keys(results).forEach(key => {
         const id = key;
         const title = results[key].title;
@@ -64,6 +65,6 @@ const processWikiResults = (results) => {
             text
         };
         resultArray.push(item);
-    });
+    }); // /forEach
     return resultArray;
 };
